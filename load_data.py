@@ -5,8 +5,7 @@ import random
 
 from torchvision import transforms, datasets
 
-# 나중에 device도 args에 넘겨주기
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")  # device 객체
+device = "cpu"
 
 random_seed = 555
 random.seed(random_seed)

@@ -5,7 +5,7 @@ import time
 import argparse
 
 dataloaders, dataset_sizes = ld.load_dataset()
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+device = "cpu"
 
 class Evaluation(object):
     def __init__(self, args):
@@ -49,7 +49,7 @@ class Evaluation(object):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='parameters for model')
 
-    parser.add_argument('--model_pth', type=str, default='milkathon_epoch100.pt',
+    parser.add_argument('--model_pth', type=str, default='milk_epoch250_cpu.pt',
                         help='path where the model exists')
 
     args = parser.parse_args()

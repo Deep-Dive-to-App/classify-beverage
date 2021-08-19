@@ -1,11 +1,11 @@
 import io
-# from flask_ngrok import run_with_ngrok
+from flask_ngrok import run_with_ngrok
 from flask import Flask, jsonify, request
 import torch
 from PIL import Image
 from torchvision import transforms
 
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+device = "cpu"
 
 class_names = ['0', '1', '2', '3', '4']
 milk_list = {'0': '딸기우유', '1': '바나나우유', '2': '초코우유', '3': '커피우유', '4': '흰우유'}
@@ -15,7 +15,7 @@ transforms_test = transforms.Compose([
             transforms.ToTensor(),
             transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
         ])
-model = torch.load('milkathon_epoch100.pt')
+model = torch.load('milk_epoch250_cpu.pt')
 
 # 이미지를 읽어 결과를 반환하는 함수
 def get_prediction(image_bytes):
@@ -46,5 +46,5 @@ def predict():
         return jsonify({'class_name': class_name})
 
 if __name__ == '__main__':
-    # run_with_ngrok(app)
+    run_with_ngrok(app)
     app.run()
