@@ -1,5 +1,4 @@
 import io
-from flask_ngrok import run_with_ngrok
 from flask import Flask, jsonify, request
 import torch
 from PIL import Image
