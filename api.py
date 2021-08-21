@@ -45,5 +45,4 @@ def predict():
         return jsonify({'class_name': class_name})
 
 if __name__ == '__main__':
-    run_with_ngrok(app)
     app.run()
