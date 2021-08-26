@@ -1,1 +1,1 @@
-web: gunicorn api:app
+web: gunicorn api:app --binding 127.0.0.1
