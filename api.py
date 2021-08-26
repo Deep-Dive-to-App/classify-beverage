@@ -3,6 +3,7 @@ from flask import Flask, jsonify, request
 import torch
 from PIL import Image
 from torchvision import transforms
+import os
 
 device = "cpu"
 
@@ -45,4 +46,8 @@ def predict():
         return jsonify({'class_name': class_name})
 
 if __name__ == '__main__':
-    app.run()
+
+    port = int(os.environ.get('PORT', 5000))
+
+    app.run(host='0.0.0.0', port=port, debug=True)
+    # app.run()
