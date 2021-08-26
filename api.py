@@ -19,15 +19,16 @@ model = torch.load('milk_epoch250_cpu.pt')
 
 # 이미지를 읽어 결과를 반환하는 함수
 def get_prediction(image_bytes):
-    image = Image.open(io.BytesIO(image_bytes))
-    image = transforms_test(image).unsqueeze(0).to(device)
+    return '1'
+    # image = Image.open(io.BytesIO(image_bytes))
+    # image = transforms_test(image).unsqueeze(0).to(device)
+    #
+    # with torch.no_grad():
+    #     outputs = model(image)
+    #     _, preds = torch.max(outputs, 1)
+    #     print(f'[예측 결과: {milk_list[class_names[preds[0]]]}]')
 
-    with torch.no_grad():
-        outputs = model(image)
-        _, preds = torch.max(outputs, 1)
-        print(f'[예측 결과: {milk_list[class_names[preds[0]]]}]')
-
-    return class_names[preds[0]]
+    # return class_names[preds[0]]
 
 
 app = Flask(__name__)
@@ -47,7 +48,7 @@ def predict():
 
 if __name__ == '__main__':
 
-    port = int(os.environ.get('PORT', 8000))
+    # port = int(os.environ.get('PORT', 8000))
 
-    app.run(host='0.0.0.0', port=port, debug=True)
-    # app.run()
+    # app.run(host='0.0.0.0', port=port, debug=True)
+    app.run()
