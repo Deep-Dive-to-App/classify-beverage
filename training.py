@@ -22,7 +22,7 @@ dataloaders, dataset_sizes = ld.load_dataset()
 def transfer_learning():
     model_ft = models.resnet18(pretrained=True)
     num_ftrs = model_ft.fc.in_features
-    model_ft.fc = nn.Linear(num_ftrs, 5)
+    model_ft.fc = nn.Linear(num_ftrs, 10)
 
     model_ft = model_ft.to(device)
 
@@ -121,8 +121,8 @@ class Train(object):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='parameters for model')
 
-    parser.add_argument('--n_epochs', type=int, default=100, help='the number of epochs')
-    parser.add_argument('--model_pth', type=str, default='milkathon_epoch100.pt', help='path where the model exists')
+    parser.add_argument('--n_epochs', type=int, default=250, help='the number of epochs')
+    parser.add_argument('--model_pth', type=str, default='beverage_epoch250.pt', help='path where the model exists')
     parser.add_argument('--batch_size', type=int, default=4, help='batch size')
     parser.add_argument('--lr', type=float, default=0.001, help='learning rate')
 

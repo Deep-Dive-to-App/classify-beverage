@@ -18,8 +18,8 @@ class Evaluation(object):
     def eval_model(self):
         start_time = time.time()
 
-        class_names = ['0', '1', '2', '3', '4']
-        milk_list = {'0': '딸기우유', '1': '바나나우유', '2': '초코우유', '3': '커피우유', '4': '흰우유'}
+        class_names = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+        milk_list = {'0': '코카콜라', '1': '펩시콜라', '2': '칠성사이다', '3': '웰치스포도', '4': '초코에몽', '5': '비락식혜', '6': '밀키스', '7': '봉봉', '8': '포카리스웨트', '9': '스프라이트'}
 
         with torch.no_grad():
             running_loss = 0.
@@ -49,7 +49,7 @@ class Evaluation(object):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='parameters for model')
 
-    parser.add_argument('--model_pth', type=str, default='milk_epoch250_cpu.pt',
+    parser.add_argument('--model_pth', type=str, default='beverage_epoch250.pt',
                         help='path where the model exists')
 
     args = parser.parse_args()
